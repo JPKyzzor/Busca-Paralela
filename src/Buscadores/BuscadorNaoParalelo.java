@@ -14,6 +14,9 @@ public class BuscadorNaoParalelo implements BuscadorArquivo {
 
     @Override
     public ResultadoBusca BuscaNome(String nome) {
+        if (nome.isEmpty()) {
+            throw new IllegalArgumentException("O nome não pode ser vazio");
+        }
         long inicio = System.currentTimeMillis();
 
         for (int i = 1; i <= quantidadeArquivos; i++) {
